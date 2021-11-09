@@ -1,0 +1,15 @@
+{
+  "correoRegistroExitoso1": "pepito326q5g@hotmail.com",
+  "correoRegistroExitoso2": "pepito326d5g@hotmail.com",
+  "correoLoginFallido": "peasdasdss@hotmail.com",
+  "nombre": "Pepito",
+  "apellido": "Cifuentes",
+  "clave": "Asdbn123",
+  "direccion": "cualquiera",
+  "ciudad": "Pensilvania",
+  "telefono": "3192802167",
+  "zip": "00000",
+  "zipFallido": "000000",
+  "estado": "Alabama",
+  "mensajeZipIncorrecto": "It must follow this format: 00000"
+}
