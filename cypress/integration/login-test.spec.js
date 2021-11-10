@@ -6,10 +6,13 @@ before('Cargar Data', () => {
     })
 })
 
+beforeEach('Visitar Website', () => {
+    cy.visit('http://automationpractice.com/index.php')
+})
+
 describe('hacer registro en e-commerce', () => {
     
     it('exitoso', function () {
-        cy.visit('http://automationpractice.com/index.php')
         cy.llenarRegistro(this.login.correoRegistroExitoso1);
         cy.llenarFormularioNuevoUsuario(this.login.nombre, this.login.apellido, this.login.clave, this.login.direccion, this.login.ciudad, 
                                         this.login.telefono, this.login.estado, this.login.zip)
@@ -17,7 +20,6 @@ describe('hacer registro en e-commerce', () => {
     })
 
     it('fallido por código postal', function () {
-        cy.visit('http://automationpractice.com/index.php')
         cy.llenarRegistro(this.login.correoRegistroExitoso2)
         cy.llenarFormularioNuevoUsuario(this.login.nombre, this.login.apellido, this.login.clave, this.login.direccion, this.login.ciudad, 
             this.login.telefono, this.login.estado, this.login.zipFallido)
@@ -25,11 +27,13 @@ describe('hacer registro en e-commerce', () => {
     })
 
     it('hacer login', function () {
-//implementado
+        cy.Login(this.login.correoRegistroExitoso1,this.login.clave);
+        cy.get('.info-account').should('contain', 'Welcome to your account');
     })
 
     it('hacer login fallido por credenciales incorrectas', function () {
-//en proceso
+        cy.Login(this.login.correoRegistroExitoso1,this.login.claveFallida);
+        cy.get('ol > li').should('contain', 'Authentication failed.');
     })
 
 })

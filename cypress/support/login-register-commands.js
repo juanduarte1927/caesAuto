@@ -17,3 +17,10 @@ Cypress.Commands.add('llenarFormularioNuevoUsuario', (nombre, apellido, clave, d
     cy.get('#postcode').type(zip)
     cy.get('#submitAccount > span').click();
 })
+
+Cypress.Commands.add('Login', (correoRegistroExitoso,contraseña) =>{
+    cy.get('.login').click();
+    cy.get('#email').type(correoRegistroExitoso);
+    cy.get('#passwd').type(contraseña)
+    cy.get('#SubmitLogin > span').click();
+})
